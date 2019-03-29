@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+        <generatorConfiguration>
+       <!-- 找到mysql驱动加载-->
+	<classPathEntry location="D:\instarPath\Maven\maven_repository\mysql\mysql-connector-java\5.1.40\mysql-connector-java-5.1.40.jar"/>
+    
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+		
+		
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="cn.pd.samary.utils.BaseMapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://148.70.40.220:3306/palladium_app"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!-- 对于生成的pojo所在包 -->
+        <javaModelGenerator targetPackage="cn.pd.samary.module.app.enterprise.entity" targetProject="src/main/java"/>
+
+        <!-- 对于生成的mapper所在目录 -->
+        <sqlMapGenerator targetPackage="cn.pd.samary.module.app.enterprise.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 配置mapper对应的java映射 -->
+        <javaClientGenerator targetPackage="cn.pd.samary.module.app.enterprise.entity" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+
+        <!--设置表与对应生成的实体类-->
+        <table tableName="pd_user_auths" domainObjectName="PdUserAuths"/>
+
+
+    </context>
+</generatorConfiguration>
