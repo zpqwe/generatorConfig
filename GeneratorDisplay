@@ -38,6 +38,7 @@ public class GeneratorDisplay {
 
 
 相关的maven文件
+ <!--MyBatis Generator及工具-->
 <dependency>
 <groupId>org.mybatis.generator</groupId>
 <artifactId>mybatis-generator-core</artifactId>
